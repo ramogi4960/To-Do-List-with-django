@@ -12,6 +12,10 @@
 <a href="{% url 'login' %}">Login</a>
 {% endif %}
 <hr>
+<form method="GET">
+    <input type="text" name="search_area" value="{{ search_input }}">
+    <input type="submit" value="Search">
+</form>
 <table>
     <tr>
         <th>Title</th>
