@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Delete</title>
-</head>
-<body>
-<h1>Are you sure you want to delete the task below??</h1>
+{% extends 'base.html' %}
+{% block title %}Delete{% endblock %}
+
+{% block content %}
+<h2>Are you sure you want to delete the task below??</h2>
 <h2>{{ task.title }}</h2>
 <form method="POST">
     {% csrf_token %}
-    <input type="submit" value="Delete">
+    <input type="submit" value="Delete" class="btn btn-primary">
 </form>
-</body>
-</html>
+<p class="lead">
+  <a href="{% url 'list' %}">Cancel and go back to list</a>
+</p>
+{% endblock %}

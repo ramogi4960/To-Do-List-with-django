@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details for {{ task.title }}</title>
-</head>
-<body>
-    <h1>Task: {{ task.title }}</h1>
+{% extends 'base.html' %}
+{% block title %}Details for {{ task.title }}{% endblock %}
+
+{% block content %}
+<h1>Task: {{ task.title }}</h1>
 <p>{{ task.details }}</p>
-</body>
-</html>
+<br>
+<p class="lead">
+  <a href="{% url 'list' %}">Go back to List</a>
+</p>
+{% endblock %}

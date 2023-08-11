@@ -9,6 +9,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
+# test for base template
+# def base(request):
+#     return render(request, 'base.html')
+
 
 class Login(LoginView):
     template_name = 'login.html'

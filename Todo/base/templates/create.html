@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create new</title>
-</head>
-<body>
-<h1>Create new task</h1>
-<h1></h1>
+{% extends 'base.html' %}
+{% block title %}Create new task{% endblock %}
+
+{% block content %}
+<h1>Add details for new task</h1>
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Add task">
-</form>
+    <div class="mb-3">
+        {{ form.as_p }}
 
-</body>
-</html>
+  </div>
+    <input type="submit" value="Add task" class="btn btn-primary">
+</form>
+<p class="lead">
+  <a href="{% url 'list' %}">Cancel and go back to list</a>
+</p>
+{% endblock %}

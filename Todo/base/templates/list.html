@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>List View</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}
+{{request.user}}'s Tasks
+{% endblock %}
+
+{% block content %}
 {% if request.user.is_authenticated %}
 <h1>{{request.user}}</h1>
 <a href="{% url 'logout' %}">Logout</a>
@@ -16,14 +16,18 @@
     <input type="text" name="search_area" value="{{ search_input }}">
     <input type="submit" value="Search">
 </form>
-<table>
+
+<table class="table">
+  <thead>
     <tr>
-        <th>Title</th>
-        <th>link</th>
-        <th>Update</th>
-        <th>Delete</th>
+      <th scope="col">Title</th>
+      <th scope="col">Link</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
     </tr>
-    {% if not tasks %}
+  </thead>
+  <tbody>
+  {% if not tasks %}
     <p>No item to display</p>
     {% else %}
     {% for item in tasks %}
@@ -35,7 +39,8 @@
     </tr>
     {% endfor %}
     {% endif %}
+  </tbody>
 </table>
+
 <p><a href="{% url 'create' %}">Create new item</a></p>
-</body>
-</html>
+{% endblock %}
