@@ -81,7 +81,7 @@ class Update(LoginRequiredMixin, UpdateView):
     model = Task
     fields = '__all__'
     success_url = reverse_lazy('list')
-    template_name = 'create.html'
+    template_name = 'update.html'
 
 
 class Delete(LoginRequiredMixin, DeleteView):
